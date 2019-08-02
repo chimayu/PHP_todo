@@ -1,4 +1,6 @@
 <?php
+    require_once('function.php');
+
     // DBからデータを取得する
     require_once('Models/Todo.php');
 
@@ -16,9 +18,9 @@
     $tasks = $todo->getAll();
 
     // 変数の中身を確認したいとき
-    echo '<pre>';
-    var_dump($tasks);
-    exit;
+    // echo '<pre>';
+    // var_dump($tasks);
+    // exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,10 +68,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                <!--  -->
+                <!-- 取得したデータを一覧表示する -->
+                <?php foreach ($tasks as $result): ?>
                     <tr>
-                        <td>create new website</td>
-                        <td>2019/08/21</td>
+                        <td><?php echo h($result['name']); ?></td>
+                        <td><?php echo h($result['due_date']); ?></td>
                         <td>
                             <a class="text-success" href="edit.php">EDIT</a>
                         </td>
@@ -77,16 +80,7 @@
                             <a class="text-danger" href="delete.php">DELETE</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>go to club</td>
-                        <td>2019/10/21</td>
-                        <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>  
         </section>
