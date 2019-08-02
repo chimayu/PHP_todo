@@ -1,3 +1,25 @@
+<?php
+    // DBからデータを取得する
+    require_once('Models/Todo.php');
+
+    // インスタンス化
+    // インスタンスを$todoという変数に代入
+    $todo = new Todo();
+
+    // 変数の中身を確認したいとき
+    // echo '<pre>';
+    // var_dump($todo);
+    // exit;
+
+    // DBからデータを取得して、$tasksという変数に代入
+    // DBからデータを取得 === TodoクラスのインスタンスのgetAllメソッドを実行
+    $tasks = $todo->getAll();
+
+    // 変数の中身を確認したいとき
+    echo '<pre>';
+    var_dump($tasks);
+    exit;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +47,7 @@
         <section>
             <form class="form-row" action="create.php" method="POST">
                 <div class="col-12 col-md-9 py-2">
-                    <input type="text" class="form-control" placeholder="ADD TODO">
+                    <input type="text" class="form-control" placeholder="ADD TODO" name="task">
                 </div>
                 <div class="py-2 col-md-3 col-12">
                     <button type="submit" class="col-12 btn btn-primary btn-block">ADD</button>
@@ -44,6 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!--  -->
                     <tr>
                         <td>create new website</td>
                         <td>2019/08/21</td>
