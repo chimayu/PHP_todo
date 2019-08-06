@@ -69,17 +69,17 @@
                 </thead>
                 <tbody>
                 <!-- 取得したデータを一覧表示する -->
-                <?php foreach ($tasks as $result): ?>
-                    <tr>
-                        <td><?php echo h($result['name']); ?></td>
-                        <td><?php echo h($result['due_date']); ?></td>
-                        <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
-                        </td>
-                    </tr>
+                    <?php foreach ($tasks as $result): ?>
+                        <tr>
+                            <td><?php echo h($result['name']); ?></td>
+                            <td><?php echo h($result['due_date']); ?></td>
+                            <td>
+                                <a class="text-success" href="edit.php<?php echo '?edit=id_' . h($result['id']); ?>">EDIT</a>
+                            </td>
+                            <td>
+                                <a class="text-danger" href="delete.php">DELETE</a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>  
