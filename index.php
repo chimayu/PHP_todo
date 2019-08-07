@@ -1,8 +1,11 @@
 <?php
+    // エラーの種類：Fatal, Warning, Notice
+    // function.phpのファイルを読み込んでいないとFatal errorになる
     require_once('function.php');
 
     // DBからデータを取得する
     require_once('Models/Todo.php');
+
 
     // インスタンス化
     // インスタンスを$todoという変数に代入
@@ -69,17 +72,18 @@
                 </thead>
                 <tbody>
                 <!-- 取得したデータを一覧表示する -->
-                <?php foreach ($tasks as $result): ?>
-                    <tr>
-                        <td><?php echo h($result['name']); ?></td>
-                        <td><?php echo h($result['due_date']); ?></td>
-                        <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
-                        </td>
-                    </tr>
+                    <?php foreach ($tasks as $task): ?>
+                        <tr>
+                            <td><?php echo h($task['name']); ?></td>
+                            <td><?php echo h($task['due_date']); ?></td>
+                            <td>
+                                <!-- aタグでデータを送る時、urlの後ろに ?key=value 複数の時は ?key=value&key=value -->
+                                <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
+                            </td>
+                            <td>
+                                <a class="text-danger" href="delete.php">DELETE</a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>  
