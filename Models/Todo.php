@@ -10,6 +10,7 @@ class Todo
 {
     // プロパティ
     private $table = 'tasks';
+    private $tb_content = 'name';
     private $db_manager;
 
     // インスタンス化した時に呼ばれるメソッド
@@ -50,4 +51,22 @@ class Todo
         // $tasksの変数に入れずに、下記のように書いてもよい
         // return $stmt->fetchAll();
     }
+
+    public function get($id)
+    {
+        // $idと一致するidを持つレコードを取得する
+        // DBとの接続はdbconnect.phpで実施済みなので
+        // ここではSQLを準備・実行し、実行結果を変数に代入する
+
+        // SQL文を準備する
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE id = ?');
+        // 実行する
+        // executeには[0 => '1'] みたいな配列の状態で渡す
+        $stmt->execute([$id]);
+        // 実行結果を変数に代入する
+        $task = $stmt->fetch();
+        // 結果を関数の呼び出し元に返す
+        return $task;
+    }
+
 }
