@@ -14,7 +14,7 @@ $todo = new Todo();
 // Todoクラスのgetメソッドを実行
 $task = $todo->get($id);
 // echo '<pre>';
-// var_dump($task);
+// var_dump($task, $_GET['id'], $task['id']);
 // die;
 
 ?>
@@ -47,7 +47,8 @@ $task = $todo->get($id);
                 <div class="col-12 col-md-9 py-2">
                     <input type="text" name="task" class="form-control" value="<?php echo h($task['name']) ?>">
                 </div>
-                <input type="hidden" name="id" value="">
+                <!-- データを表示する -->
+                <input type="hidden" name="id" value="<?php echo h($task['id']); ?>">
                 <div class="py-2 col-md-3 col-12">
                     <button type="submit" class="col-12 btn btn-primary btn-block">UPDATE</button>
                 </div>
