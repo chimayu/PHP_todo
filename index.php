@@ -55,7 +55,7 @@
                     <input type="text" class="form-control" placeholder="ADD TODO" name="task">
                 </div>
                 <div class="py-2 col-md-3 col-12">
-                    <button type="submit" class="col-12 btn btn-primary btn-block">ADD</button>
+                    <button type="submit" class="col-12 btn btn-primary btn-block" id="js-create-btn">ADD</button>
                 </div>
             </form>
         </section>

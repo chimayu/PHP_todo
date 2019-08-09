@@ -59,4 +59,41 @@ $(function(){
         }
 
     });
+
+    $(document).on('click','[id^="js-create-btn"]', function(e){
+        e.preventDefault();
+        // console.log(123);
+
+        // Ajaxで処理をする
+        // delete.php?key=value
+        // key=value -> $_GET['key'] で valueが取れる
+        // id = 33 -> $_GET['id'] で 33 が取れる
+        function  createTask() {
+            $.ajax({
+                // どこに何を送るのか
+                // 
+                url: 'create.php?id=' + id, // formタグでいうところの action属性
+                type: 'GET', // formタグでいうところの method属性
+                dataType: 'json'
+            }) .then(
+                //成功した場合の処理
+                // functionの引数にはレスポンスが入ってる
+                // 
+                function(isDeleated) {
+                    if (isDeleated) {
+                        deleteDOM(id);
+                    }
+                },
+                //失敗した場合の処理
+                function() {
+                    console.log('失敗');
+                }
+            );
+        }
+
+        function deleteDOM(id) {
+            $('#js-task-' + id).remove();
+        }
+
+    });
 });

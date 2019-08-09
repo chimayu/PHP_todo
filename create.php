@@ -15,8 +15,10 @@ $todo = new Todo();
 
 // Todoクラスのインスタンスの
 // createメソッドを実行
-$todo->create($task);
-
+$res = $todo->create($task);
 
 // 一覧画面に戻る
 header('Location: index.php');
+
+echo json_encode(true);
+exit;

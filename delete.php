@@ -38,5 +38,5 @@ $res = $todo->delete($id);
 // 一覧画面に戻る
 // header('Location: index.php');
 
-echo json_encode(true);
+echo json_encode($res);
 exit;
