@@ -91,7 +91,19 @@ $.ajax({
 ```
 
 ## 余談
-- Vue, React
+- Vue, React と併用
     - SPA: Single Page Application
     - Webアプリケーションで流行ってる
     - データを全部入れ替える訳ではないので描画が速い
+
+## 今日やること
+- 画面を移動しないようにすること
+- DBからデータを削除する
+- 画面に表示されてるデータを削除する
+
+1. jQueryをCDNで導入する
+    - jQueryはJavaScriptのライブラリ
+    - DOMを操作する
+    - ファイルをダウンロード or CDN
+        - CDN === Content Delivery Network
+        - バージョン3.4.1 == メジャーアップデート.マイナーアップデート.パッチ 

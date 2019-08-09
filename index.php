@@ -73,7 +73,7 @@
                 <tbody>
                 <!-- 取得したデータを一覧表示する -->
                     <?php foreach ($tasks as $task): ?>
-                        <tr>
+                        <tr id="js-task-<?php echo h($task['id'])?>">
                             <td><?php echo h($task['name']); ?></td>
                             <td><?php echo h($task['due_date']); ?></td>
                             <td>
@@ -81,7 +81,7 @@
                                 <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
                             </td>
                             <td>
-                                <a class="text-danger" href="delete.php?id=<?php echo h($task['id']); ?>">DELETE</a>
+                                <a class="text-danger" id="js-delete-btn-<?php echo h($task['id'])?>" href="delete.php?id=<?php echo h($task['id']); ?>">DELETE</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -89,6 +89,7 @@
             </table>  
         </section>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <script src="assets/js/app.js"></script>
 </body>

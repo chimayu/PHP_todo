@@ -82,7 +82,7 @@ class Todo
         // 準備
         $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
         // 実行
-        $stmt->execute([$id]);
+        return $stmt->execute([$id]);
     }
 
 }
